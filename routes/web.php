@@ -30,3 +30,4 @@ Route::get('/lupapassword/{ftoken}', function($ftoken) {
 
 Route::post('/lupapassword', 'ForgetPassController@lupaPassword');
 Route::post('/lupapassword/{ftoken}', 'ForgetPassController@gantiPassword');
+
