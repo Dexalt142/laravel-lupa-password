@@ -22,13 +22,11 @@ Route::get('/lupapassword', function() {
 Route::get('/lupapassword/{ftoken}', function($ftoken) {
   $forgetToken = DB::table('users')->where('forget_token', $ftoken);
   if($forgetToken->count() < 1) {
-    return view('page.lupapassword'); // Jika forget token tidak ditemukan
+    return view('lupapassword'); // Jika forget token tidak ditemukan
   } else {
-    return view('page.changepassword')->with('ftoken', $ftoken); // Jika forget token ditemukan
+    return view('changepassword')->with('ftoken', $ftoken); // Jika forget token ditemukan
   }
 });
 
 Route::post('/lupapassword', 'ForgetPassController@lupaPassword');
 Route::post('/lupapassword/{ftoken}', 'ForgetPassController@gantiPassword');
-
-?>
